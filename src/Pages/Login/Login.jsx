@@ -10,7 +10,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signInUser } = useContext(AuthContex);
+  const { signInUser, googleSignin } = useContext(AuthContex);
   const {
     register,
     handleSubmit,
@@ -137,7 +137,18 @@ const Login = () => {
               <h2 className="text-lg font-medium text-center">Sign In with</h2>
               </div>
               <div className="w-full flex items-center justify-center mt-4">
-                <div className="border-2 p-2 rounded-full border-blue-300 hover:bg-gray-200">
+                <div onClick={() => {
+                  googleSignin()
+                  .then(res =>{
+                    console.log(res.user);
+                    toast.success("Login successful")
+                    navigate(`${location?.state || "/"}`);
+                  })
+                  .catch(err => {
+                    console.log(err);
+                    toast.error(err.message)
+                  })
+                  }} className="border-2 p-2 rounded-full border-blue-300 hover:bg-gray-200">
                   <FcGoogle size={25} />
                 </div>
               </div>

@@ -48,7 +48,7 @@ const NavbarLinks = () => {
             <div className="flex items-center justify-start bg-white p-2 rounded-full px-6 shadow-xl border-2 gap-2 border-gray-300">
               <IoMenu size={30} />
               <img
-                className="w-[40px] border p-2 object-cover rounded-full"
+                className="w-[50px] h-[50px] border p-2 object-cover rounded-full"
                 src={user?.photoURL || profile}
                 alt="profile pic"
               />
@@ -56,9 +56,14 @@ const NavbarLinks = () => {
           </label>
           <div
             tabIndex={0}
-            className="dropdown-content mt-[70px] px-6 py-4 text-center mr-3 z-[1] menu p-2 shadow bg-base-100 rounded-box"
+            className="dropdown-content mt-[90px] md:-mr-2 md:w-[350px] px-6 py-4 text-center mr-3 z-[1] menu p-2 shadow bg-base-100 rounded-box"
           >
             <div>
+              <img
+                className="w-[80px] h-[80px] border p-2 mx-auto object-cover rounded-full"
+                src={user?.photoURL || profile}
+                alt="profile pic"
+              />
               <h2 className="text-xl font-medium">
                 {user?.displayName || "Anarul Islam"}
               </h2>

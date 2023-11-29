@@ -6,11 +6,14 @@ import { AuthContex } from "./AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import NavbarLinks from "../../Components/Navbar/NavbarLinks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import useAxiosPublic from "../../Hooks/useAxiosPublic/axiosPublic";
 
 const SignUp = () => {
-  const { createUser, updateUser } = useContext(AuthContex);
+  const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
+  const { createUser, updateUser, googleSignin } = useContext(AuthContex);
   const {
     register,
     handleSubmit,
@@ -35,7 +38,18 @@ const SignUp = () => {
         toast.success("User Register");
         updateUser(name, photo)
           .then(() => {
-            toast.success("User Register");
+            axiosPublic
+              .post("/users", {
+                name,
+                email,
+                photo,
+                role: "user",
+                createdAt: new Date("2023-11-29").toUTCString(),
+              })
+              .then((res) => {
+                console.log(res.data);
+              })
+              .catch((err) => console.log(err));
           })
           .catch((err) => toast.error(err.message));
       })
@@ -81,7 +95,10 @@ const SignUp = () => {
                 className="max-w-[40px] block object-cover"
                 alt="logo"
               />
-              <h2 style={{fontFamily:"verdana"}} className="font-bold text-blue-800 text-3xl">
+              <h2
+                style={{ fontFamily: "verdana" }}
+                className="font-bold text-blue-800 text-3xl"
+              >
                 PRH
               </h2>
             </Link>
@@ -182,11 +199,30 @@ const SignUp = () => {
             <div>
               <h2 className="text-lg font-medium text-center">Sign In with</h2>
               <div className="w-full flex items-center justify-center mt-6">
-                <div className="border-2 p-2 rounded-full border-blue-300 hover:bg-gray-200">
+                <div
+                  onClick={() => {
+                    googleSignin()
+                      .then((res) => {
+                        console.log(res.user);
+                        toast.success("Login successful");
+                        navigate(`${location?.state || "/"}`);
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                        toast.error(err.message);
+                      });
+                  }}
+                  className="border-2 p-2 rounded-full border-blue-300 hover:bg-gray-200"
+                >
                   <FcGoogle size={25} />
                 </div>
               </div>
-              <h2 className="mt-4">Already have an account? <Link className="text-blue-600 font-medium" to="/login">Login</Link></h2>
+              <h2 className="mt-4">
+                Already have an account?{" "}
+                <Link className="text-blue-600 font-medium" to="/login">
+                  Login
+                </Link>
+              </h2>
             </div>
           </form>
         </div>

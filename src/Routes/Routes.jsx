@@ -7,6 +7,9 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import UserHome from "../Pages/Dashboard.jsx/UserHOme.jsx/UserHome";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Myprofile from "../Pages/Dashboard.jsx/UserLink/MyProfile/MyProfile";
+import Announcement from "../Pages/Dashboard.jsx/UserLink/Announcement/Announcement";
+import MakePayment from "../Pages/Dashboard.jsx/MemberLinks/MakePayment";
 
 const Routes = createBrowserRouter([
     {
@@ -31,7 +34,19 @@ const Routes = createBrowserRouter([
             {
                 index:true,
                 element: <UserHome/>
-            }
+            },
+            {
+                path:"my-profile",
+                element: <Myprofile/>
+            },
+            {
+                path:"announcements",
+                element: <Announcement/>
+            },
+            {
+                path:"makepayment",
+                element: <MakePayment/>
+            },
         ]
     },
     {

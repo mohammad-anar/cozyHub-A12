@@ -12,7 +12,7 @@ const MainLayout = () => {
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="w-full navbar bg-white shadow-md bg-opacity-10">
-          <div className="flex-none lg:hidden">
+          <div className="flex-none md:hidden">
             <label
               htmlFor="my-drawer-3"
               aria-label="open sidebar"
@@ -64,7 +64,7 @@ const MainLayout = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu p-4 w-80 min-h-full bg-base-200">
+        <div style={{zIndex: 99999999999999}} className="menu p-4 w-80 min-h-screen bg-base-200">
           {/* Sidebar content here */}
           <Sidebar></Sidebar>
         </div>

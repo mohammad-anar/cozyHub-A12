@@ -19,6 +19,7 @@ const ApartmentCard = ({ apartment }) => {
       apartment_no: apartment.apartment_no,
       rent: apartment.rent,
       status: "pending",
+      createdAt : new Date("2023-11-29").toUTCString()
     };
     axiosSecure
       .post("/agreements", aggreementData)

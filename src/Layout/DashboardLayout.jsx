@@ -1,13 +1,12 @@
-import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/602232.png"
-import NavbarLinks from "../Components/Navbar/NavbarLinks";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../Pages/Dashboard.jsx/Sidebar";
 const DashboardLayout = () => {
-    return (
-        <div className="drawer">
+  return (
+    <div className="drawer min-h-screen bg-gray-100 relative w-full">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar bg-white shadow-md bg-opacity-10">
+        <div className="w-full navbar bg-white md:hidden shadow-md bg-opacity-10">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-3"
@@ -29,21 +28,21 @@ const DashboardLayout = () => {
               </svg>
             </label>
           </div>
-          <Link className="flex-1" to={"/"}>
-          <div className="flex items-center gap-2 btn btn-ghost px-2 mx-2">
-          <img src={logo} className="max-w-[30px] block object-cover"  alt="logo" />
-          <h2 className="text-3xl font-bold text-blue-800">PRH</h2>
-          </div>
-          </Link>
-          <div className="flex-none hidden lg:block">
-            <div className="menu menu-horizontal flex items-center">
-              {/* Navbar menu content here */}
-              <NavbarLinks></NavbarLinks>
-            </div>
-          </div>
         </div>
         {/* Page content here */}
-        <Outlet></Outlet>
+        <div className="flex ">
+          <div
+            id="sidebar"
+            className=" min-w-[256px]  px-2 pt-6 bg-gray-200  hidden md:block sticky min-h-screen top-0 left-0"
+          >
+            <div className="flex flex-col gap-3 ">
+              <Sidebar></Sidebar>
+            </div>
+          </div>
+          <div className="px-4 w-full">
+          <Outlet></Outlet>
+          </div>
+        </div>
       </div>
       <div className="drawer-side">
         <label
@@ -51,18 +50,13 @@ const DashboardLayout = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200">
+        <div className="menu p-4 w-80 min-h-full bg-base-200">
           {/* Sidebar content here */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
+          <Sidebar></Sidebar>
+        </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default DashboardLayout;
