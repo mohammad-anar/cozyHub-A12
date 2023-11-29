@@ -32,11 +32,11 @@ const DashboardLayout = () => {
           <Link className="flex-1" to={"/"}>
           <div className="flex items-center gap-2 btn btn-ghost px-2 mx-2">
           <img src={logo} className="max-w-[30px] block object-cover"  alt="logo" />
-          <h2 className="text-2xl font-bold text-blue-800">Primerental Hub</h2>
+          <h2 className="text-3xl font-bold text-blue-800">PRH</h2>
           </div>
           </Link>
           <div className="flex-none hidden lg:block">
-            <div className="menu menu-horizontal">
+            <div className="menu menu-horizontal flex items-center">
               {/* Navbar menu content here */}
               <NavbarLinks></NavbarLinks>
             </div>

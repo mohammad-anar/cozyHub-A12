@@ -1,0 +1,38 @@
+[
+    {
+      "image": "https://images.unsplash.com/photo-1628592102751-ba83b0314276?q=80&w=1397&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 3,
+      "block_name": "Oakwood Towers",
+      "apartment_no": "C301",
+      "rent": 2200
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1380&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 8,
+      "block_name": "Maple Heights",
+      "apartment_no": "B804",
+      "rent": 2800
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1628592102751-ba83b0314276?q=80&w=1397&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 5,
+      "block_name": "Cityscape Residences",
+      "apartment_no": "A505",
+      "rent": 1800
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1380&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 12,
+      "block_name": "Evergreen Plaza",
+      "apartment_no": "D1203",
+      "rent": 3200
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1628592102751-ba83b0314276?q=80&w=1397&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 2,
+      "block_name": "Riverside Gardens",
+      "apartment_no": "E205",
+      "rent": 2000
+    }
+  ]
+  

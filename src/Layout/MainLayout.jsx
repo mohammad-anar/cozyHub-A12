@@ -1,9 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/602232.png"
+import logo from "../assets/602232.png";
 import NavbarLinks from "../Components/Navbar/NavbarLinks";
 import Sidebar from "../Components/Sidebar/Sidebar";
+import Footer from "../Components/Footer/Footer";
 
 const MainLayout = () => {
+  
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -31,12 +33,20 @@ const MainLayout = () => {
               </svg>
             </label>
           </div>
-          <Link className="flex-1" to={"/"}>
-          <div className="sm:flex items-center hidden gap-2 btn btn-ghost px-2 mx-2">
-          <img src={logo} className="max-w-[40px] block object-cover"  alt="logo" />
-          <h2 className="text-2xl font-bold text-blue-800">Primerental Hub</h2>
+
+          <div className=" flex-1 ">
+            <Link className="sm:flex  hidden gap-2 btn btn-ghost px-2 mx-2"  to={"/"}>
+              <img
+                src={logo}
+                className="max-w-[40px] block object-cover"
+                alt="logo"
+              />
+              <h2 className="text-3xl font-bold text-blue-800">
+                PRH
+              </h2>
+            </Link>
           </div>
-          </Link>
+
           <div className="flex-none hidden md:block">
             <div className="menu menu-horizontal flex items-center">
               {/* Navbar menu content here */}
@@ -46,6 +56,7 @@ const MainLayout = () => {
         </div>
         {/* Page content here */}
         <Outlet></Outlet>
+        <Footer></Footer>
       </div>
       <div className="drawer-side">
         <label
