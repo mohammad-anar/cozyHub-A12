@@ -7,6 +7,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthProvider from "./Pages/SignUp/AuthProvider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
+import "react-datepicker/dist/react-datepicker.css";//datepicker react
 
 const queryClient = new QueryClient();
 

@@ -6,7 +6,11 @@ import { AuthContex } from "../SignUp/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic/axiosPublic";
 import { MdManageHistory, MdOutlinePayment } from "react-icons/md";
-// import axios from "axios";
+import { MdManageAccounts } from "react-icons/md";
+import { TfiAnnouncement } from "react-icons/tfi";
+import { PiGitPullRequestThin } from "react-icons/pi";
+import { SiGoogletagmanager } from "react-icons/si";
+
 
 const Sidebar = () => {
   const { user } = useContext(AuthContex);
@@ -28,50 +32,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <div title="Home" className="btn bg-white rounded-none ">
-        <NavLink
-          to={"my-profile"}
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? " text-blue-600 w-full p-2 "
-              : "w-full p-2"
-          }
-        >
-          <div className="flex items-center justify-start gap-3 w-full">
-            <FaRegUserCircle size={22} />
-            <h2>My Profile</h2>
-          </div>
-        </NavLink>
-      </div>
-      {/* user routes */}
-      {loggedUser?.data[0]?.role === "user" && (
-        <div title="Apartment" className=" btn bg-white rounded-none">
-          <NavLink
-            to={"announcements"}
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? " text-blue-600 w-full p-2 "
-                : "w-full p-2"
-            }
-          >
-            <div className="flex items-center justify-start gap-3 w-full">
-              <GrAnnounce size={22} />
-              <h2>Announcements</h2>
-            </div>
-          </NavLink>
-        </div>
-      )}
-
-      {/* member links */}
-      {loggedUser?.data[0]?.role === "member" && (
+      {loggedUser?.data[0]?.role !== "admin" ? (
         <>
-          <div title="Apartment" className=" btn bg-white rounded-none">
+          {" "}
+          <div  className="btn bg-white rounded-none ">
             <NavLink
-              to={"makepayment"}
+              to={"my-profile"}
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"
@@ -81,14 +47,94 @@ const Sidebar = () => {
               }
             >
               <div className="flex items-center justify-start gap-3 w-full">
-                <MdOutlinePayment size={22} />
-                <h2>Make Payment</h2>
+                <FaRegUserCircle size={22} />
+                <h2>My Profile</h2>
               </div>
             </NavLink>
           </div>
-          <div title="Apartment" className="btn bg-white rounded-none">
+          {/* user routes */}
+          {loggedUser?.data[0]?.role === "user" && (
+            <div title="Apartment" className=" btn bg-white rounded-none">
+              <NavLink
+                to={"announcements"}
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? " text-blue-600 w-full p-2 "
+                    : "w-full p-2"
+                }
+              >
+                <div className="flex items-center justify-start gap-3 w-full">
+                  <GrAnnounce size={22} />
+                  <h2>Announcements</h2>
+                </div>
+              </NavLink>
+            </div>
+          )}
+          {/* member links */}
+          {loggedUser?.data[0]?.role === "member" && (
+            <>
+              <div title="Apartment" className=" btn bg-white rounded-none">
+                <NavLink
+                  to={"makepayment"}
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? " text-blue-600 w-full p-2 "
+                      : "w-full p-2"
+                  }
+                >
+                  <div className="flex items-center justify-start gap-3 w-full">
+                    <MdOutlinePayment size={22} />
+                    <h2>Make Payment</h2>
+                  </div>
+                </NavLink>
+              </div>
+              <div title="Apartment" className="btn bg-white rounded-none">
+                <NavLink
+                  to={"payment-history"}
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? " text-blue-600 w-full p-2 "
+                      : "w-full p-2"
+                  }
+                >
+                  <div className="flex items-center justify-start gap-3 w-full">
+                    <MdManageHistory size={22} />
+                    <h2>Payment History</h2>
+                  </div>
+                </NavLink>
+              </div>
+              <div title="Apartment" className=" btn bg-white rounded-none">
+                <NavLink
+                  to={"announcements"}
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? " text-blue-600 w-full p-2 "
+                      : "w-full p-2"
+                  }
+                >
+                  <div className="flex items-center justify-start gap-3 w-full">
+                    <GrAnnounce size={22} />
+                    <h2>Announcement</h2>
+                  </div>
+                </NavLink>
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          {/* admin routes  */}
+          <div  className="btn bg-white rounded-none ">
             <NavLink
-              to={"payment-history"}
+              to={"admin-profile"}
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"
@@ -98,14 +144,14 @@ const Sidebar = () => {
               }
             >
               <div className="flex items-center justify-start gap-3 w-full">
-                <MdManageHistory size={22} />
-                <h2>Payment History</h2>
+                <FaRegUserCircle size={22} />
+                <h2>Admin Profile</h2>
               </div>
             </NavLink>
           </div>
-          <div title="Apartment" className=" btn bg-white rounded-none">
+          <div  className="btn bg-white rounded-none ">
             <NavLink
-              to={"announcements"}
+              to={"manage-members"}
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"
@@ -115,14 +161,64 @@ const Sidebar = () => {
               }
             >
               <div className="flex items-center justify-start gap-3 w-full">
-                <GrAnnounce size={22} />
-                <h2>Announcement</h2>
+                <MdManageAccounts size={22} />
+                <h2>Manage members</h2>
+              </div>
+            </NavLink>
+          </div>
+          <div  className="btn bg-white rounded-none ">
+            <NavLink
+              to={"make-announcement"}
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " text-blue-600 w-full p-2 "
+                  : "w-full p-2"
+              }
+            >
+              <div className="flex items-center justify-start gap-3 w-full">
+                <TfiAnnouncement size={22} />
+                <h2>Make Announcement</h2>
+              </div>
+            </NavLink>
+          </div>
+          <div  className="btn bg-white rounded-none ">
+            <NavLink
+              to={"agreement-requests"}
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " text-blue-600 w-full p-2 "
+                  : "w-full p-2"
+              }
+            >
+              <div className="flex items-center justify-start gap-3 w-full">
+                <PiGitPullRequestThin size={22} />
+                <h2>Agreement Requests</h2>
+              </div>
+            </NavLink>
+          </div>
+          <div  className="btn bg-white rounded-none ">
+            <NavLink
+              to={"manage-cupons"}
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " text-blue-600 w-full p-2 "
+                  : "w-full p-2"
+              }
+            >
+              <div className="flex items-center justify-start gap-3 w-full">
+                <SiGoogletagmanager size={22} />
+                <h2>Manage Cupons</h2>
               </div>
             </NavLink>
           </div>
         </>
       )}
-      {/* admin links */}
     </>
   );
 };

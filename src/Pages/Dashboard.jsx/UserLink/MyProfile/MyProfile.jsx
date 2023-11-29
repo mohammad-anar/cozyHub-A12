@@ -8,7 +8,7 @@ const Myprofile = () => {
   const { user } = useContext(AuthContex);
   const axiosSecure = useAxiosSecure();
   const { data: agreements } = useQuery({
-    queryKey: ["agreements"],
+    queryKey: ["agreements", user],
     queryFn: async () => {
       const res = await axiosSecure.get(`/agreements?email=${user?.email}`);
       return res;
@@ -30,7 +30,7 @@ const Myprofile = () => {
             </h2>
             <p className="text-base mt-2">
               Email:{" "}
-              <span className="bg-gray-400 rounded-xl px-3">{user?.email}</span>
+              <span className="bg-gray-200 rounded-xl px-3">{user?.email}</span>
             </p>
             <button className="btn btn-sm mt-4 w-full ">
               <FiEdit />
