@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../Pages/Dashboard.jsx/Sidebar";
 const DashboardLayout = () => {
   return (
-    <div className="drawer min-h-screen bg-gray-100 relative w-full">
+    <div className="drawer min-h-screen bg-gray-100 relative w-full overflow-x-hidden">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
