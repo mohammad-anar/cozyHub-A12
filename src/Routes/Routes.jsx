@@ -16,6 +16,7 @@ import AgreementRequest from "../Pages/Dashboard.jsx/AdminHome.jsx/AgreementRequ
 import ManageCupons from "../Pages/Dashboard.jsx/AdminHome.jsx/ManageCupons/ManageCupons";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/Dashboard.jsx/Payment/Payment";
+import PayemntHistory from "../Pages/Dashboard.jsx/MemberLinks/PayemntHistory";
 
 
 const Routes = createBrowserRouter([
@@ -74,6 +75,10 @@ const Routes = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "payment-history",
+        element: <PayemntHistory />,
       },
     ],
   },

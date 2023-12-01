@@ -1,4 +1,4 @@
-import { FaHome, FaRegUserCircle } from "react-icons/fa";
+import {  FaRegUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { GrAnnounce } from "react-icons/gr";
 import { useContext } from "react";
@@ -236,24 +236,6 @@ const Sidebar = () => {
           </div>
         </>
       )}
-
-      <div className="btn bg-white rounded-none ">
-        <NavLink
-          to={"/"}
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? " text-blue-600 w-full p-2 "
-              : "w-full p-2"
-          }
-        >
-          <div className="flex items-center justify-start gap-3 w-full">
-            <FaHome size={22} />
-            <h2>Go Home</h2>
-          </div>
-        </NavLink>
-      </div>
     </>
   );
 };
