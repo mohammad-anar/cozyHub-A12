@@ -2,8 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure/axiosSecure";
 import toast from "react-hot-toast";
 import { FallingLines } from "react-loader-spinner";
+import { useContext } from "react";
+import { AuthContex } from "../../../SignUp/AuthProvider/AuthProvider";
 
 const AgreementRequest = () => {
+  const {user} = useContext(AuthContex);
   const axiosSecure = useAxiosSecure();
   const {
     data: agreements,
@@ -23,13 +26,16 @@ const AgreementRequest = () => {
       .then((res) => {
         console.log(res.data);
         toast.success("status updated");
+        refetch()
       })
       .catch((err) => {
         toast.error(err.message);
       });
-    axiosSecure.put(`users/${id}`).then((res) => {
+    axiosSecure.put(`users/${user?.email}`).then((res) => {
       console.log(res.data);
-      toast.success("user updated");
+      if(res?.data?.modifiedCount > 0){        
+          toast.success("user updated");
+      }
     });
   };
   const handleReject = (id) => {
@@ -37,7 +43,9 @@ const AgreementRequest = () => {
       .delete(`/agreements/${id}`)
       .then((res) => {
         console.log(res.data);
-        toast.success("rejected");
+        if(res?.data?.modifiedCount > 0){        
+            toast.success("rejected");
+        }
         refetch();
       })
       .catch((err) => {
@@ -88,10 +96,13 @@ const AgreementRequest = () => {
                     <td>{agreement?.createdAt.slice(4, 22)}</td>
                     <td>
                       <button
+                      disabled={agreement.status === "checked"}
                         onClick={() => handleAccept(agreement?._id)}
                         className="btn btn-sm bg-green-600 text-white"
                       >
-                        Accept
+                        {
+                          (agreement.status === "checked")? "Accepted": "Accept"
+                        }
                       </button>
                     </td>
                     <td>

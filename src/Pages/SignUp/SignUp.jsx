@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import logo from "../../assets/602232.png";
 import { useContext } from "react";
 import { AuthContex } from "./AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
@@ -9,6 +8,7 @@ import NavbarLinks from "../../Components/Navbar/NavbarLinks";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import useAxiosPublic from "../../Hooks/useAxiosPublic/axiosPublic";
+import Logo from "../../Components/Sidebar/Logo/Logo";
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
@@ -87,20 +87,10 @@ const SignUp = () => {
 
           <div className=" flex-1 ">
             <Link
-              className="sm:flex  hidden gap-2 btn btn-ghost px-2 mx-2"
+              className="sm:flex  hidden gap-2 px-2 mx-2"
               to={"/"}
             >
-              <img
-                src={logo}
-                className="max-w-[40px] block object-cover"
-                alt="logo"
-              />
-              <h2
-                style={{ fontFamily: "verdana" }}
-                className="font-bold text-blue-800 text-3xl"
-              >
-                PRH
-              </h2>
+              <Logo></Logo>
             </Link>
           </div>
 

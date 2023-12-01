@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import logo from "../../assets/602232.png";
 import { useForm } from "react-hook-form";
 import { AuthContex } from "../SignUp/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
@@ -7,6 +6,7 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import NavbarLinks from "../../Components/Navbar/NavbarLinks";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import Logo from "../../Components/Sidebar/Logo/Logo";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ const Login = () => {
   const onSubmit = async (data) => {
     const email = data.email;
     const password = data.password;
-    console.log(email, password);
     // signin user
     signInUser(email, password)
       .then(() => {
@@ -61,15 +60,10 @@ const Login = () => {
 
           <div className=" flex-1 ">
             <Link
-              className="sm:flex  hidden gap-2 btn btn-ghost px-2 mx-2"
+              className="sm:flex  hidden gap-2 px-2 mx-2"
               to={"/"}
             >
-              <img
-                src={logo}
-                className="max-w-[40px] block object-cover"
-                alt="logo"
-              />
-              <h2 className="text-2xl font-bold text-blue-800">PRH</h2>
+              <Logo></Logo>
             </Link>
           </div>
 

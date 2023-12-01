@@ -3,6 +3,9 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { FaRegCaretSquareDown } from "react-icons/fa";
 import { AuthContex } from "../../SignUp/AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/axiosSecure";
 
 const MakePayment = () => {
   const { user } = useContext(AuthContex);
@@ -14,6 +17,14 @@ const MakePayment = () => {
     const password = data.password;
     console.log(name, email, password);
   };
+  const axiosSecure = useAxiosSecure();
+  const { data: agreements } = useQuery({
+    queryKey: ["agreements", user],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/agreements?email=${user?.email}`);
+      return res;
+    },
+  });
   return (
     <div className="px-12 flex flex-col items-center justify-center min-h-screen">
       <form
@@ -33,7 +44,7 @@ const MakePayment = () => {
             type="email"
             id="email"
             name="email"
-            defaultValue={user?.email}
+            defaultValue={agreements?.data[0].userEmail}
             className="border w-full p-2 outline-gray-400"
             {...register("email")}
             placeholder="Email "
@@ -49,6 +60,7 @@ const MakePayment = () => {
             type="text"
             id="block-name"
             name="block-name"
+            defaultValue={agreements?.data[0].block_name}
             className="border w-full p-2 outline-gray-400"
             {...register("block_name")}
             placeholder="Enter block name "
@@ -64,6 +76,7 @@ const MakePayment = () => {
             type="text"
             id="floor-no"
             name="floor-no"
+            defaultValue={agreements?.data[0].floor_no}
             className="border w-full p-2 outline-gray-400"
             {...register("floor_no")}
             placeholder="Enter floor no "
@@ -79,6 +92,7 @@ const MakePayment = () => {
             type="text"
             id="apartment-no"
             name="apartment-no"
+            defaultValue={agreements?.data[0].apartment_no}
             className="border w-full p-2 outline-gray-400"
             {...register("apartment_no")}
             placeholder="Enter apartment no "
@@ -94,6 +108,7 @@ const MakePayment = () => {
             type="text"
             id="rent"
             name="rent"
+            defaultValue={agreements?.data[0].rent}
             className="border w-full p-2 outline-gray-400"
             {...register("rent")}
             placeholder="Enter rent "
@@ -115,11 +130,13 @@ const MakePayment = () => {
           </div>
         </div>
 
+        <Link to={"/dashboard/payment"}>
         <input
           type="submit"
           value={"Pay"}
           className="btn bg-blue-600 text-white font-bold w-full mt-4 rounded-none"
         />
+        </Link>
       </form>
     </div>
   );

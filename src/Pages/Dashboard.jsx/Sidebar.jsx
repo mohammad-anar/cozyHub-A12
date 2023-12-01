@@ -1,4 +1,4 @@
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaHome, FaRegUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { GrAnnounce } from "react-icons/gr";
 import { useContext } from "react";
@@ -10,7 +10,7 @@ import { MdManageAccounts } from "react-icons/md";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { PiGitPullRequestThin } from "react-icons/pi";
 import { SiGoogletagmanager } from "react-icons/si";
-
+import Logo from "../../Components/Sidebar/Logo/Logo";
 
 const Sidebar = () => {
   const { user } = useContext(AuthContex);
@@ -32,12 +32,28 @@ const Sidebar = () => {
 
   return (
     <>
+      <div className="btn rounded-none h-full ">
+        <NavLink
+          to={"/"}
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? " text-blue-600 w-full p-2 "
+              : "w-full p-2 h-full"
+          }
+        >
+          <div className="flex items-center justify-start bg-white gap-3 w-full">
+            <Logo></Logo>
+          </div>
+        </NavLink>
+      </div>
       {loggedUser?.data[0]?.role !== "admin" ? (
         <>
           {" "}
-          <div  className="btn bg-white rounded-none ">
+          <div className="btn bg-white rounded-none ">
             <NavLink
-              to={"my-profile"}
+              to={"/dashboard"}
               className={({ isActive, isPending }) =>
                 isPending
                   ? "pending"
@@ -132,7 +148,8 @@ const Sidebar = () => {
       ) : (
         <>
           {/* admin routes  */}
-          <div  className="btn bg-white rounded-none ">
+
+          <div className="btn bg-white rounded-none ">
             <NavLink
               to={"admin-profile"}
               className={({ isActive, isPending }) =>
@@ -149,7 +166,7 @@ const Sidebar = () => {
               </div>
             </NavLink>
           </div>
-          <div  className="btn bg-white rounded-none ">
+          <div className="btn bg-white rounded-none ">
             <NavLink
               to={"manage-members"}
               className={({ isActive, isPending }) =>
@@ -166,7 +183,7 @@ const Sidebar = () => {
               </div>
             </NavLink>
           </div>
-          <div  className="btn bg-white rounded-none ">
+          <div className="btn bg-white rounded-none ">
             <NavLink
               to={"make-announcement"}
               className={({ isActive, isPending }) =>
@@ -183,7 +200,7 @@ const Sidebar = () => {
               </div>
             </NavLink>
           </div>
-          <div  className="btn bg-white rounded-none ">
+          <div className="btn bg-white rounded-none ">
             <NavLink
               to={"agreement-requests"}
               className={({ isActive, isPending }) =>
@@ -200,7 +217,7 @@ const Sidebar = () => {
               </div>
             </NavLink>
           </div>
-          <div  className="btn bg-white rounded-none ">
+          <div className="btn bg-white rounded-none ">
             <NavLink
               to={"manage-cupons"}
               className={({ isActive, isPending }) =>
@@ -219,6 +236,24 @@ const Sidebar = () => {
           </div>
         </>
       )}
+
+      <div className="btn bg-white rounded-none ">
+        <NavLink
+          to={"/"}
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? " text-blue-600 w-full p-2 "
+              : "w-full p-2"
+          }
+        >
+          <div className="flex items-center justify-start gap-3 w-full">
+            <FaHome size={22} />
+            <h2>Go Home</h2>
+          </div>
+        </NavLink>
+      </div>
     </>
   );
 };
