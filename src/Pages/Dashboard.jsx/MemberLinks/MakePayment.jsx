@@ -5,7 +5,7 @@ import { FaRegCaretSquareDown } from "react-icons/fa";
 import { AuthContex } from "../../SignUp/AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure/axiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxionSecure";
 
 const MakePayment = () => {
   const { user } = useContext(AuthContex);

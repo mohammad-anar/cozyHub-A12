@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../../../firebase/firebase.conf";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxionSecure";
 
 // constex api
 export const AuthContex = createContext(null);
@@ -17,6 +18,7 @@ const googleProvider = new GoogleAuthProvider();
 // const gitHubPorvider = new GithubAuthProvider();
 // Main FN
 const AuthProvider = ({ children }) => {
+  const axiosSecure = useAxiosSecure();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   //  create user
@@ -54,11 +56,25 @@ const AuthProvider = ({ children }) => {
     const unSubscrive = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
+      if(user){
+        
+      const payloadUser = {user: user.displayName};
+
+      axiosSecure.post("/access-token", payloadUser)
+      .then(res => {
+        console.log(res.data);
+        localStorage.setItem("token", res.data)
+      }).catch(err => {
+        console.log(err);
+      })
+      }else{
+        localStorage.removeItem("token")
+      }
     });
     return () => {
       unSubscrive();
     };
-  }, []);
+  }, [axiosSecure]);
 
   const authValue = {
     user,

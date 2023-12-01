@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AuthContex } from "../SignUp/AuthProvider/AuthProvider";
-import useAxiosSecure from "../../Hooks/useAxiosSecure/axiosSecure";
+import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxionSecure";
 import toast from "react-hot-toast";
 const ApartmentCard = ({ apartment }) => {
   const axiosSecure = useAxiosSecure();

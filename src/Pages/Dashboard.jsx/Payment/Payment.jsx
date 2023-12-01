@@ -2,7 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure/axiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxionSecure";
 import { useContext, useState } from "react";
 import { AuthContex } from "../../SignUp/AuthProvider/AuthProvider";
 

@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure/axiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxionSecure";
 import { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types"
 import { AuthContex } from "../../SignUp/AuthProvider/AuthProvider";

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure/axiosSecure";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxionSecure";
 import { FallingLines } from "react-loader-spinner";
 
 const Announcement = () => {

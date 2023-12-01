@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContex } from "../../../SignUp/AuthProvider/AuthProvider";
 import { FiEdit } from "react-icons/fi";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure/axiosSecure";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxionSecure";
 
 const Myprofile = () => {
   const { user } = useContext(AuthContex);
