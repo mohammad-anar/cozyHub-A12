@@ -14,7 +14,9 @@ const NavbarLinks = () => {
 
   return (
     <>
-      <div title="Home" className=" btn btn-ghost">
+      <div data-aos="zoom-in"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="600" title="Home" className=" btn btn-ghost">
         <NavLink
           to={"/"}
           className={({ isActive, isPending }) =>
@@ -28,7 +30,9 @@ const NavbarLinks = () => {
           <GoHomeFill size={30} />
         </NavLink>
       </div>
-      <div title="Apartment" className=" btn btn-ghost">
+      <div data-aos="zoom-in"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="800" title="Apartment" className=" btn btn-ghost">
         <NavLink
           to={"/apartment"}
           className={({ isActive, isPending }) =>
@@ -43,7 +47,7 @@ const NavbarLinks = () => {
         </NavLink>
       </div>
       {user ? (
-        <div className="dropdown dropdown-end rounded-full p-2 flex justify-start">
+        <div  className="dropdown dropdown-end rounded-full p-2 flex justify-start">
           <label tabIndex={0} className="m-1">
             <div className="flex items-center justify-start bg-white p-2 rounded-full px-6 shadow-xl border-2 gap-2 border-gray-300">
               <IoMenu size={30} />

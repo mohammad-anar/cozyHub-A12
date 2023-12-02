@@ -5,10 +5,11 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxionSecure";
 import { useContext, useState } from "react";
 import { AuthContex } from "../../SignUp/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 const Payment = () => {
-    const [month, setMonth] = useState('');
+  const [month, setMonth] = useState("");
   const { user } = useContext(AuthContex);
   const axiosSecure = useAxiosSecure();
   const { data: agreements } = useQuery({
@@ -20,6 +21,10 @@ const Payment = () => {
   });
   return (
     <div className="m-4 p-6">
+      <Helmet>
+        <title>CozyHub || Payment</title>
+      </Helmet>
+
       <div className="px-12 flex flex-col items-center justify-center">
         <form className="flex flex-col items-center px-16 w-[320px] md:w-[450px] lg:w-[520px] mx-auto">
           <h2 className="my-4 mt-4 text-blue-600 text-3xl font-medium">
@@ -48,7 +53,7 @@ const Payment = () => {
               type="rent"
               id="rent"
               name="rent"
-              defaultValue={"$ "+agreements?.data[0]?.rent}
+              defaultValue={"$ " + agreements?.data[0]?.rent}
               className="border w-full p-2 outline-gray-400"
               placeholder="Enter your rent "
             />
@@ -62,17 +67,20 @@ const Payment = () => {
               type="text"
               id="month"
               name="month"
-              onChange={(e)=> setMonth(e.target.value)}
+              onChange={(e) => setMonth(e.target.value)}
               className="border w-full p-2 outline-gray-400"
               placeholder="Enter your month "
             />
           </div>
-          
         </form>
       </div>
       <div className="px-16 mt-6 w-[320px] md:w-[450px] lg:w-[520px] mx-auto">
         <Elements stripe={stripePromise}>
-          <CheckoutForm price={agreements?.data[0]?.rent} agreement={agreements?.data[0]} paymentMonth={month}></CheckoutForm>
+          <CheckoutForm
+            price={agreements?.data[0]?.rent}
+            agreement={agreements?.data[0]}
+            paymentMonth={month}
+          ></CheckoutForm>
         </Elements>
       </div>
     </div>

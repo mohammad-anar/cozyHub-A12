@@ -31,11 +31,13 @@ const ApartmentCard = ({ apartment }) => {
       .catch((err) => toast.error(err.message));
   };
   return (
-    <div className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 ">
+    <div data-aos="zoom-in"
+    data-aos-easing="ease-in-out"
+    data-aos-duration="500" className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 ">
       <div className="relative m-0 h-40 max-h-40 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
         <img
           src={apartment.image}
-          className="object-cover h-full w-full"
+          className="object-cover h-full w-full hover:scale-110 duration-500"
           alt="ui/ux review check"
         />
       </div>

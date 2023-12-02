@@ -32,7 +32,7 @@ const ManageMember = () => {
   return (
     <div className="p-2 py-8">
       <div>
-        <h2 className="text-xl font-semibold ml-2 mb-6">Manage Users</h2>
+        <h2 className="text-xl font-semibold ml-2 mb-6 text-blue-500">Manage Members</h2>
       </div>
       {isLoading ? (
         <div className="h-screen flex items-center justify-center">

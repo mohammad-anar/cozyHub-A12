@@ -55,7 +55,7 @@ const AgreementRequest = () => {
   };
   return (
     <div className="p-2 md:p-4 lg:p-12 bg-white m-2 md:m-4 lg:m-0 lg:mt-6 w-[350px] min-w-full xs:w-full sm:max-w-full md:max-w-full mx-auto">
-      <h2 className="text-2xl font-medium mb-6">Agreements Requests</h2>
+      <h2 className="text-2xl font-medium mb-6 text-blue-500">Agreements Requests</h2>
       {isloading ? (
         <div className="h-screen flex items-center justify-center">
           <FallingLines

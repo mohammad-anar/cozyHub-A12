@@ -22,10 +22,20 @@ const CuponSection = () => {
       className="bg-[url('https://i.ibb.co/n3XGdHN/backgorund1.jpg')] bg-opacity-40 mt-12 h-[300px] w-full flex-col gap-4 flex items-center justify-center"
     >
       <div className="text-center bg-blue-900 px-24 p-6 rounded-xl bg-opacity-20">
-        <h2 className="text-xl font-semibold text-black">
+        <h2
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+          className="text-xl font-semibold text-black"
+        >
           Let Start with the Promo
         </h2>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+        <h1
+          data-aos="zoom-out"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold"
+        >
           To Get <span className="text-white">{cupon?.discount}% Off</span>
         </h1>
         <div className="flex mt-6 ">

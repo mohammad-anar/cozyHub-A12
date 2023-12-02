@@ -9,7 +9,6 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Myprofile from "../Pages/Dashboard.jsx/UserLink/MyProfile/MyProfile";
 import Announcement from "../Pages/Dashboard.jsx/UserLink/Announcement/Announcement";
 import MakePayment from "../Pages/Dashboard.jsx/MemberLinks/MakePayment";
-import AdminProfile from "../Pages/Dashboard.jsx/AdminHome.jsx/AdminProfile/AdminProfile";
 import ManageMember from "../Pages/Dashboard.jsx/AdminHome.jsx/ManageMember/ManageMember";
 import MakeAnnouncement from "../Pages/Dashboard.jsx/AdminHome.jsx/MakeAnnouncement/MakeAnnouncement";
 import AgreementRequest from "../Pages/Dashboard.jsx/AdminHome.jsx/AgreementRequest/AgreementRequest";
@@ -50,11 +49,6 @@ const Routes = createBrowserRouter([
       {
         path: "makepayment",
         element: <MakePayment />,
-      },
-      {
-        index: true,
-        path: "admin-profile",
-        element: <AdminProfile />,
       },
       {
         path: "manage-members",

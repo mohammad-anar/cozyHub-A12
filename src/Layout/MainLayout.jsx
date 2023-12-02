@@ -34,7 +34,9 @@ const MainLayout = () => {
             </label>
           </div>
 
-          <div className=" flex-1 ">
+          <div data-aos="zoom-in-right"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500" className=" flex-1 ">
             <Link className="sm:flex  hidden gap-2 px-2 mx-2"  to={"/"}>
               <Logo></Logo>
             </Link>

@@ -37,9 +37,21 @@ const ManageCupons = () => {
     })
     .catch(err => console.log(err))
   }
+  const handleRemove = (id) => {
+    console.log(id);
+    axiosSecure.delete(`/cupons/${id}`)
+    .then(res => {
+      console.log(res);
+      toast.success("removed")
+      refetch()
+    }).catch(err=>{
+      console.log(err);
+      toast.error(err.message)
+    })
+  }
   return (
     <div className="m-2 mt-8">
-      <h2 className="text-xl font-semibold mb-4 ml-2">Manage Cupons</h2>
+      <h2 className="text-xl font-semibold mb-4 ml-2 text-blue-500">Manage Cupons</h2>
       <div className="p-2 md:p-4 lg:p-12 bg-white m-2 md:m-4 lg:m-0 lg:mt-6 w-[350px] min-w-full xs:w-full sm:max-w-full md:max-w-full mx-auto overflow-x-scroll">
         <table className="table table-xs table-pin-rows min-w-full overflow-x-scroll table-pin-cols z-0 border-b">
           <thead>
@@ -62,7 +74,7 @@ const ManageCupons = () => {
                   <td>{cupon?.discount}%</td>
                   <td>{cupon?.cupon_description?.slice(0, 20)}{(cupon?.cupon_description?.length > 20)? "....." : "" }</td>
                   <td>
-                    <button className="btn btn-sm bg-red-600 text-white">
+                    <button onClick={() =>handleRemove(cupon._id)} className="btn btn-sm bg-red-600 text-white">
                       Remove
                     </button>
                   </td>

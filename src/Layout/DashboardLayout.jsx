@@ -1,8 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Pages/Dashboard.jsx/Sidebar";
+import { Helmet } from "react-helmet-async";
 const DashboardLayout = () => {
   return (
     <div className="drawer min-h-screen bg-gray-100 relative w-full overflow-x-hidden">
+    <Helmet>
+        <title>CozyHub || Dashboard</title>
+      </Helmet>
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
