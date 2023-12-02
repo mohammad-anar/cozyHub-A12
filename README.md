@@ -26,4 +26,4 @@
  * stripe texting card payment integrated for payment;
 
 
- ### My website live preview link :- 
+ ### My website live preview link :- https://cozyhub.surge.sh/
