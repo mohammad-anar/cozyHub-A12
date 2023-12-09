@@ -35,7 +35,7 @@ const Sidebar = () => {
         />
       ) : (
         <>
-          {" "}
+          
           <div className="btn rounded-none h-full ">
             <NavLink
               to={"/"}
@@ -47,7 +47,7 @@ const Sidebar = () => {
                   : "w-full p-2 h-full"
               }
             >
-              <div className="flex items-center justify-start bg-white gap-3 w-full">
+              <div className="flex items-center justify-start bg-white rounded-xl gap-3 w-full">
                 <Logo></Logo>
               </div>
             </NavLink>

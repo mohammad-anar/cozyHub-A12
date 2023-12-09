@@ -33,7 +33,7 @@ const ApartmentCard = ({ apartment }) => {
   return (
     <div data-aos="zoom-in"
     data-aos-easing="ease-in-out"
-    data-aos-duration="500" className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 ">
+    data-aos-duration="500" className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 dark:bg-gray-200 ">
       <div className="relative m-0 h-40 max-h-40 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
         <img
           src={apartment.image}

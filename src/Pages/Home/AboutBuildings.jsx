@@ -11,16 +11,16 @@ const AboutBuildings = () => {
         <div className="relative">
           <h2 data-aos="fade-right"
         data-aos-easing="ease-in-out"
-        data-aos-duration="800" className="text-base font-semibold mb-2">--Welcome</h2>
+        data-aos-duration="800" className="text-base dark:text-white font-semibold mb-2">--Welcome</h2>
           <h1 data-aos="fade-right"
         data-aos-easing="ease-in-out"
-        data-aos-duration="900" className="text-3xl font-medium mb-2">
+        data-aos-duration="900" className="text-3xl dark:text-white font-medium mb-2">
             A tailored &apos;Primerental rental Hub &apos;
             <br /> experience
           </h1>
           <p data-aos="fade-up"
         data-aos-easing="ease-in-out"
-        data-aos-duration="800" className="text-justify p-2">
+        data-aos-duration="800" className="text-justify dark:text-white p-2">
             Discover the epitome of modern living at [Your Building Name].
             Nestled in a prime location, our building offers a luxurious and
             comfortable lifestyle tailored to meet your every need. Whether
@@ -30,31 +30,31 @@ const AboutBuildings = () => {
           <ul data-aos="fade-right"
         data-aos-easing="ease-in-out"
         data-aos-duration="800">
-            <h2 className="text-xl font-bold">Key Features:</h2>
-            <li>
-              <span className="font-bold">Spacious Apartments:</span> Choose
+            <h2 className="text-xl font-bold dark:text-white">Key Features:</h2>
+            <li className="dark:text-gray-200">
+              <span className="font-bold dark:text-white">Spacious Apartments:</span> Choose
               from a range of thoughtfully designed apartments, each offering
               spacious interiors and an abundance of natural light.
             </li>
-            <li>
-              <span className="font-bold">Security and Privacy: </span> Enjoy
+            <li className="dark:text-gray-200">
+              <span className="font-bold dark:text-white">Security and Privacy: </span> Enjoy
               contemporary living with access to state-of-the-art amenities,
               including a fitness center, rooftop lounge, and more.
             </li>
-            <li>
-              <span className="font-bold">Prime Location:</span> Conveniently
+            <li className="dark:text-gray-200">
+              <span className="font-bold dark:text-white">Prime Location:</span> Conveniently
               situated in [City/Area], our building is in close proximity to
               shopping centers, restaurants, and public transportation, making
               it easy to explore everything the city has to offer.
             </li>
-            <li>
-              <span className="font-bold">Professional Management: </span> Our
+            <li className="dark:text-gray-200">
+              <span className="font-bold dark:text-white">Professional Management: </span> Our
               dedicated management team is committed to providing exceptional
               service. From maintenance requests to community events, we&apos;re here
               for you.
             </li>
-            <li>
-              <span className="font-bold">Schedule a Tour:</span> Contact us
+            <li className="dark:text-gray-200">
+              <span className="font-bold dark:text-white">Schedule a Tour:</span> Contact us
               today to schedule a tour of [Your Building Name]. Experience the
               luxury, comfort, and convenience that our building has to offer.
               Your new home awaits!

@@ -24,7 +24,7 @@ const NavbarLinks = () => {
               ? "pending"
               : isActive
               ? "bg-gray-300 text-blue-600 p-2 rounded-xl"
-              : ""
+              : "dark:text-gray-100"
           }
         >
           <GoHomeFill size={30} />
@@ -40,7 +40,7 @@ const NavbarLinks = () => {
               ? "pending"
               : isActive
               ? "bg-gray-300 text-blue-600 p-2 rounded-xl"
-              : ""
+              : "dark:text-gray-100"
           }
         >
           <MdApartment size={30} />

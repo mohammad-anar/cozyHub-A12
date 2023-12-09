@@ -3,15 +3,30 @@ import NavbarLinks from "../Components/Navbar/NavbarLinks";
 import Sidebar from "../Components/Sidebar/Sidebar";
 import Footer from "../Components/Footer/Footer";
 import Logo from "../Components/Sidebar/Logo/Logo";
+import { useEffect, useState } from "react";
 
 const MainLayout = () => {
+  const [toggle, setToggle] = useState("light");
+
+  useEffect(() => {
+    const html = document.documentElement;    
+      html.classList = toggle;
+  },[toggle])
+
+  const handleToggle = () => {
+    if (toggle === "light") {
+      setToggle("dark")
+    }else{
+      setToggle("light")
+    }
+  }
   
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar bg-white shadow-md bg-opacity-10">
+        <div className="w-full navbar bg-white shadow-md dark:bg-oapcity-100 dark:bg-gray-800 bg-opacity-10">
           <div className="flex-none md:hidden">
             <label
               htmlFor="my-drawer-3"
@@ -40,6 +55,10 @@ const MainLayout = () => {
             <Link className="sm:flex  hidden gap-2 px-2 mx-2"  to={"/"}>
               <Logo></Logo>
             </Link>
+            <div>
+            <input onClick={handleToggle} type="checkbox" className="toggle toggle-sm toggle-secondary " />
+            <p className="dark:text-white">{toggle}</p>
+            </div>
           </div>
 
           <div className="flex-none hidden md:block">

@@ -5,13 +5,12 @@ const SectionHeading = ({ title, subtitle }) => {
       data-aos="fade-down"
       data-aos-easing="ease-in-out"
       data-aos-duration="800"
-      className="my-12  mx-auto text-center"
+      className="my-12  mx-auto text-center dark:text-white"
     >
       <h2 className="text-xl font-medium mb-2">{subtitle}--</h2>
-      <h1 className="text-4xl md:text-5xl font-semibold border-b-4 inline-block px-4 pb-4">
+      <h1 className="text-4xl md:text-5xl font-semibold border-b-2 inline-block px-4 pb-4">
         {title}
       </h1>
-      <hr className="mt-4 border-0 border-b-2" />
     </div>
   );
 };

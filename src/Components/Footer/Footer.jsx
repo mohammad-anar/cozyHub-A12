@@ -9,7 +9,7 @@ import Logo from "../Sidebar/Logo/Logo";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-10 bg-base-200 text-base-content">
+      <footer className="footer grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-10 bg-base-200 text-base-content dark:bg-gray-800 dark:text-gray-200">
         <div className=" flex flex-col">
           <div
             data-aos="fade-right"
@@ -54,11 +54,8 @@ const Footer = () => {
           <a className="link link-hover">Fax: +1 800 603 6038</a>
         </nav>
         <nav data-aos-easing="ease-in-out" data-aos-duration="800">
-          <header
-            data-aos="fade-left"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="800"
-            className="footer-title"
+          <header            
+            className="footer-title "
           >
             Stay Connected
           </header>
@@ -67,7 +64,7 @@ const Footer = () => {
               data-aos="fade-left"
               data-aos-easing="ease-in-out"
               data-aos-duration="800"
-              className="font-semibold text-gray-500"
+              className="font-semibold text-gray-200"
             >
               Follow us on social media
             </h3>
@@ -108,7 +105,7 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
-      <div className="bg-black text-white p-2 text-center mb-4">
+      <div className="bg-black dark:bg-gray-500 dark:text-gray-200 text-white p-2 text-center mb-4">
         <h2>Copyright &copy; 2023 all right reserved by &apos;PRH&apos;</h2>
       </div>
     </div>
